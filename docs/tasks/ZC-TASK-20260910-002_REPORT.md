@@ -2,7 +2,7 @@
 
 - Task ID: ZC-TASK-20260910-002
 - Task: Password Hashing Foundation / Module: AUTH COMMON / Risk: HIGH
-- Status: 구현·로컬 검증 완료, 원격 CI 확인 중
+- Status: COMPLETED (내부 Password Hashing Foundation 범위)
 
 ## Requirement / Impact
 
@@ -23,7 +23,8 @@ NONE. Account 컬럼과 기존 Migration head 20260910_002를 유지한다. DB �
 
 - 신규 26 PASS: 실제 Argon2 생성·검증, 무작위 salt, Unicode·공백 보존, 잘못된 입력·해시, 계산 비용 상한, 재해시 필요 판단, 오류 마스킹.
 - 기존 47 PASS. 전체 73 PASS / 0 FAIL. Ruff PASS.
-- Build: auth 모듈이 포함된 wheel 생성 PASS. 원격 CI는 게시 후 확인.
+- Build: auth 모듈이 포함된 wheel 생성 PASS.
+- 원격 CI: 코드 커밋 4dab85b8f2edee4ca0bca1a8cfaad89357e4a07c의 [실행 34392762064](https://github.com/choihanseok/zerocall/actions/runs/34392762064) PASS. 설치·Lint·73개 Test·wheel Build 성공.
 - 기존 서드파티 deprecation warning 2건 유지. 테스트 실패 없음.
 
 ## Docs Sync
@@ -39,4 +40,5 @@ NONE. Account 컬럼과 기존 Migration head 20260910_002를 유지한다. DB �
 
 ## READY/NEXT TASK
 
-현재 Task의 내부 모듈 범위만 완료 대상으로 검증한다. 다음 후보는 Credential 저장 설계 검토이며 아직 착수하지 않았다. 이번 Task 보고 후 종료한다.
+READY_FOR_INTERNAL_FOUNDATION: YES. READY_FOR_PRODUCTION: NO. 현재 Task 완료.
+[Draft PR #2](https://github.com/choihanseok/zerocall/pull/2), base=codex/account-foundation. main 병합·운영 배포 없음. 다음 후보는 Credential 저장 설계 검토이며 아직 착수하지 않았다. 이번 Task 보고 후 종료한다.
