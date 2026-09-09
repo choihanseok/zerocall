@@ -17,3 +17,5 @@
 ## 변경 내역
 
 공통 기반과 Account Foundation 구현, SQLite Migration 및 47개 테스트와 Build/Lint/실서버 Health 검증 완료. 기존 파일/API/Table/Data 삭제 없음. 후속 비즈니스 Task는 시작하지 않음.
+
+후속 진행: Password Hashing Foundation(002) 완료 후 Credential Storage Foundation(003)을 구현했다. 현재 Migration head=20260910_003, 전체92개 테스트·Lint·Build PASS. 상세 최신 상태는 [003 Task Report](docs/tasks/ZC-TASK-20260910-003_REPORT.md) 참조. READY_FOR_PRODUCTION=NO 유지.

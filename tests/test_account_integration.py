@@ -136,7 +136,8 @@ def test_invalid_status_rejected_by_database(engine):
     with pytest.raises(IntegrityError):
         with engine.begin() as connection:
             connection.execute(
-                text("INSERT INTO accounts VALUES (:id, 'INVALID', :created, :updated, NULL)"),
+                text("INSERT INTO accounts (account_id, account_status, created_at, updated_at) "
+                     "VALUES (:id, 'INVALID', :created, :updated)"),
                 {"id": uuid4().hex, "created": "2026-09-10", "updated": "2026-09-10"},
             )
     with engine.connect() as connection:
@@ -147,7 +148,8 @@ def test_invalid_timestamp_order_rejected_by_database(engine):
     with pytest.raises(IntegrityError):
         with engine.begin() as connection:
             connection.execute(
-                text("INSERT INTO accounts VALUES (:id, 'PENDING', :created, :updated, NULL)"),
+                text("INSERT INTO accounts (account_id, account_status, created_at, updated_at) "
+                     "VALUES (:id, 'PENDING', :created, :updated)"),
                 {"id": uuid4().hex, "created": "2026-09-10", "updated": "2026-09-09"},
             )
 
@@ -166,7 +168,7 @@ def test_migration_preserves_unrelated_data_and_is_repeatable(settings):
         with engine.connect() as connection:
             assert connection.scalar(text("SELECT value FROM preserved_fixture")) == "retained"
             version = connection.scalar(text("SELECT version_num FROM alembic_version"))
-            assert version == "20260910_002"
+            assert version == "20260910_003"
     finally:
         engine.dispose()
 

@@ -50,7 +50,7 @@ def _validate_password(password: str) -> None:
         raise ValidationFailed()
 
 
-def _validate_hash(encoded_hash: str) -> None:
+def validate_encoded_password_hash(encoded_hash: str) -> None:
     if not isinstance(encoded_hash, str) or len(encoded_hash) > 256:
         raise InvalidStoredPasswordHash()
     match = _ENCODING.fullmatch(encoded_hash)
@@ -92,7 +92,7 @@ class Argon2PasswordHashAdapter:
 
     def verify(self, encoded_hash: str, password: str) -> bool:
         _validate_password(password)
-        _validate_hash(encoded_hash)
+        validate_encoded_password_hash(encoded_hash)
         try:
             return self._hasher.verify(encoded_hash, password)
         except VerifyMismatchError:
@@ -101,5 +101,5 @@ class Argon2PasswordHashAdapter:
             raise PasswordHashUnavailable() from None
 
     def needs_rehash(self, encoded_hash: str) -> bool:
-        _validate_hash(encoded_hash)
+        validate_encoded_password_hash(encoded_hash)
         return self._hasher.check_needs_rehash(encoded_hash)

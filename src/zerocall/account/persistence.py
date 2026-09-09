@@ -2,7 +2,7 @@ import sqlite3
 from datetime import UTC, datetime
 from uuid import UUID
 
-from sqlalchemy import CheckConstraint, DateTime, Enum, Index, Uuid, select
+from sqlalchemy import CheckConstraint, DateTime, Enum, Index, String, Uuid, select
 from sqlalchemy.exc import IntegrityError, SQLAlchemyError
 from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy.types import TypeDecorator
@@ -55,6 +55,9 @@ class AccountRow(Base):
     created_at: Mapped[datetime] = mapped_column(UTCDateTime(), nullable=False)
     updated_at: Mapped[datetime] = mapped_column(UTCDateTime(), nullable=False)
     deleted_at: Mapped[datetime | None] = mapped_column(UTCDateTime(), nullable=True)
+    password_hash: Mapped[str | None] = mapped_column(
+        String(256), nullable=True, deferred=True, deferred_raiseload=True
+    )
 
     def to_domain(self) -> Account:
         return Account(

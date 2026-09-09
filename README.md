@@ -51,3 +51,5 @@ docs의 DB/API/상태/보안/테스트 파일은 이번 구현의 보충 문서�
 ## 후속 작업
 
 ZC-TASK-20260910-002: 내부 비밀번호 해시 처리 기반. [Task Report](docs/tasks/ZC-TASK-20260910-002_REPORT.md) 및 [기술 결정](docs/decisions/002-password-hashing.md) 참조. Account 저장 및 로그인 API 연결은 후속 범위다.
+
+ZC-TASK-20260910-003: 내부 Credential 최초 저장과 전용 조회. 개발 DB Migration은 20260910_003까지 적용한다. [Task Report](docs/tasks/ZC-TASK-20260910-003_REPORT.md) 참조. 현재 전체92개 테스트 PASS.
