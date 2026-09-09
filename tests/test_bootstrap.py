@@ -9,6 +9,7 @@ from sqlalchemy import inspect, text
 
 from zerocall.app import create_app
 from zerocall.common.config import Settings, load_settings
+from zerocall.common.errors import Forbidden, RateLimitExceeded, Unauthorized
 from zerocall.common.logging import SafeJsonFormatter
 
 
@@ -102,3 +103,20 @@ def test_logs_exclude_payloads_and_exceptions():
     encoded = SafeJsonFormatter().format(record)
     assert "private" not in encoded
     assert json.loads(encoded)["event"] == "http_request"
+    assert json.loads(encoded)["message"] == "http_request"
+
+
+@pytest.mark.parametrize("error", [Unauthorized, Forbidden, RateLimitExceeded])
+def test_common_boundary_errors_keep_trace_and_hide_internal_details(settings, error):
+    app = create_app(settings)
+
+    @app.get("/test-boundary")
+    def boundary():
+        raise error("private-internal-detail")
+
+    with TestClient(app) as client:
+        response = client.get("/test-boundary")
+    assert response.status_code == error.status_code
+    assert response.json()["error"]["code"] == error.code
+    assert response.json()["traceId"] == response.headers["X-Trace-ID"]
+    assert "private" not in response.text

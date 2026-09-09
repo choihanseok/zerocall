@@ -4,7 +4,7 @@
 - Task: Account Foundation
 - Module: ACCOUNT / Service: COMMON / Risk: HIGH
 - 구현 결과: 완료, 로컬 검증 PASS
-- Task Status: BLOCKED (필수 문서 17번 전체 원문 검토 미완료)
+- Task Status: COMPLETED (요청된 내부 Foundation 범위)
 - 마지막 검증일: 2026-09-10
 
 ## Before / Impact
@@ -27,7 +27,7 @@ ZR-COM-ACCOUNT-003의 기반 부분에 연결한다. 원본 회원 항목에는 
 - Created account: src/zerocall/account/__init__.py, domain.py, errors.py, repository.py, service.py, persistence.py.
 - Created migrations: migrations/env.py, versions/20260910_001_bootstrap.py, versions/20260910_002_accounts.py.
 - Created tests: tests/conftest.py, test_bootstrap.py, test_account_unit.py, test_account_integration.py.
-- Created docs: docs/02_REQUIREMENTS_MASTER.md, 08_DATABASE_DEFINITION.md, 09_API_DEFINITION.md, 10_STATUS_CODE_DEFINITION.md, 14_SECURITY_OPERATION.md, 15_TEST_ACCEPTANCE.md, decisions/001-foundation.md, tasks/ZC-TASK-20260910-001_PLAN.md, tasks/ZC-TASK-20260910-001_REPORT.md, tasks/ZC-TASK-20260909-001_PLAN.md, tasks/ZC-TASK-20260909-001_REPORT.md.
+- Created docs: docs/REFERENCE_INDEX.md, docs/02_REQUIREMENTS_MASTER.md, 08_DATABASE_DEFINITION.md, 09_API_DEFINITION.md, 10_STATUS_CODE_DEFINITION.md, 14_SECURITY_OPERATION.md, 15_TEST_ACCEPTANCE.md, decisions/001-foundation.md, tasks/ZC-TASK-20260910-001_PLAN.md, tasks/ZC-TASK-20260910-001_REPORT.md, tasks/ZC-TASK-20260909-001_PLAN.md, tasks/ZC-TASK-20260909-001_REPORT.md.
 - Deleted: NONE. 원본 참조자료 변경 없음.
 - Local only: .venv, dist/build, zerocall-local.db (Git 제외). 상위 docs/reference/development-documents.txt는 원문 읽기용 추출자료로 원격에 포함하지 않음.
 
@@ -39,8 +39,8 @@ ZR-COM-ACCOUNT-003의 기반 부분에 연결한다. 원본 회원 항목에는 
 
 - Unit: 18 PASS / 0 FAIL.
 - Integration: 15 PASS / 0 FAIL.
-- Bootstrap Regression: 11 PASS / 0 FAIL.
-- 전체: 44 PASS / 0 FAIL.
+- Bootstrap Regression: 14 PASS / 0 FAIL (전체 원문 대조 후 공통 오류 검증 3건 추가).
+- 전체: 47 PASS / 0 FAIL.
 - Lint: PASS. 최초 줄 길이 오류 1건 수정 후 PASS.
 - Build: Account를 포함한 wheel 생성 PASS.
 - 실제 loopback 서버 시작 및 /health 응답: PASS, 검증 후 해당 서버 종료.
@@ -50,11 +50,11 @@ ZR-COM-ACCOUNT-003의 기반 부분에 연결한다. 원본 회원 항목에는 
 
 ## Docs Sync
 
-DB/API/Status/Security/Test 및 Requirement 추적 보충 문서와 기술 결정, Bootstrap/Task 보고서를 작성했다. 원본 정의서를 덮어쓰지 않았다. 00 규칙은 상위 AGENTS.md, 16 규칙 및 관련 정의서는 첨부 원문에서 확인했다. 17 체크리스트는 이전 대화 도구가 반환한 본문을 읽었으나 마지막 부분이 잘려 전체 원문 검토는 미완료다. 이 필수 문서 Gate를 통과했다고 주장하지 않는다.
+DB/API/Status/Security/Test 및 Requirement 추적 보충 문서와 기술 결정, Bootstrap/Task 보고서를 작성했다. 원본 정의서를 덮어쓰지 않았다. 후속 첨부에서 00~17번 전체를 확보하고 17번 §168 및 종료 선언까지 읽었다. 출처는 docs/REFERENCE_INDEX.md에 기록했다. 이전 문서 차단은 해소했다. 공통 401/403/429 오류 클래스 및 로그 message 필드를 기준과 일치시켰다.
 
 ## Known Issues / NEED_REVIEW
 
-1. 17_PROJECT_BOOTSTRAP_CHECKLIST 전체 원문 검토가 남아 있어 정식 Task 완료 판정을 보류한다. 구현 및 기술 검증은 완료했다.
+1. 17_PROJECT_BOOTSTRAP_CHECKLIST 전체 원문 검토 완료. 사본 18개는 local-reference에 보관하며 원격에는 공개하지 않는다. 새 작업 환경에서는 원문 확보가 필요하다.
 2. SQLite 기반 로컬 검증이며 PostgreSQL 실서버 및 운영 배포는 미검증. STAGING/PRODUCTION 실행은 차단한다.
 3. 전화번호/이메일 유일성·정규화, Account 상태전이·탈퇴·재가입 및 Actor/Scope/Audit 정책은 원본의 NEED_REVIEW 유지.
 4. 관리자 검수 화면은 사용자 요청 범위 밖이며 미구현. 현 상태를 운영 기능 완료로 해석하지 않는다.
@@ -63,11 +63,11 @@ DB/API/Status/Security/Test 및 Requirement 추적 보충 문서와 기술 결�
 ## GitHub 게시
 
 - Branch: codex/account-foundation
-- [Draft PR #1](https://github.com/choihanseok/zerocall/pull/1)
-- main 병합 및 운영 배포 없음. 17번 전체 원문 확인 전 Draft 유지.
+- [PR #1](https://github.com/choihanseok/zerocall/pull/1)
+- main 병합 및 운영 배포 없음. Draft PR에 현재 범위 검증 결과를 반영한다.
 - 게시 승인은 이번 준비 결과물의 공개에 적용하며 향후 모든 동작의 자동 승인 설정을 변경한 것은 아니다.
 
 ## READY/NEXT TASK
 
-READY_FOR_LOCAL_FOUNDATION: YES. READY_FOR_PRODUCTION: NO. 정식 COMPLETED: NO (문서 Gate).
-현재 구현 범위 종료. 다음 비즈니스 Task를 시작하지 않는다. 17번 전체 원문을 확인하면 현재 Task의 문서 검수를 마무리할 수 있다.
+READY_FOR_LOCAL_FOUNDATION: YES. READY_FOR_PRODUCTION: NO. 정식 COMPLETED: YES (현재 범위).
+사용자의 후속 자동 진행 요청에 따라 별도 Task ZC-TASK-20260910-002 Password Hashing Foundation을 다음 작업으로 수행한다. Account Task의 범위를 확장하지 않는다.

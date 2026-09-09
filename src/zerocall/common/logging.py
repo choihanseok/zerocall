@@ -11,6 +11,7 @@ class SafeJsonFormatter(logging.Formatter):
                 "timestamp": datetime.now(UTC).isoformat(),
                 "level": record.levelname,
                 "event": getattr(record, "event", "application"),
+                "message": getattr(record, "event", "application"),
                 "traceId": getattr(record, "trace_id", None),
                 "environment": getattr(record, "environment", None),
                 "status": getattr(record, "status", None),

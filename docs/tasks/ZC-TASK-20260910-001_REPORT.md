@@ -20,7 +20,7 @@ Python 3.12.14, FastAPI 0.141.1, SQLAlchemy 2.0.52, Alembic 1.19.2, pytest 9.1.1
 - STAGING/PRODUCTION과 PostgreSQL: 미구축. 설정에서 실행 거부.
 - CORS: 허용 헤더를 추가하지 않는 기본 제한. 외부 연동 없음.
 - Auth, Role, 업무 API, UI: 없음.
-- 00 규칙은 상위 AGENTS.md, 16 규칙과 관련 정의서는 기존 첨부에서 확인. 17번 문서의 반환된 본문은 읽었으나 끝부분이 잘려 원문 완전성 NEED_REVIEW. 전체 문서 완비 PASS로 간주하지 않음.
+- 후속 첨부에서 00~17번 전체 원문을 확보하고 검토했다. 이전 원문 완전성 NEED_REVIEW 해소. docs/REFERENCE_INDEX.md에 근거를 기록했고 사본은 local-reference에 Git 제외로 보관한다.
 - 현재 기술 테스트는 통과했으며 문서 원문 완전성 및 운영 준비와 구분한다.
 - 서드파티 TestClient 의존성에 deprecation warning 두 건 존재. 테스트 실패는 아님.
 

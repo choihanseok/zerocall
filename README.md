@@ -44,6 +44,6 @@ python -m build --wheel
 
 ## 문서 및 제한
 
-docs의 DB/API/상태/보안/테스트 파일은 이번 구현의 보충 문서입니다. 원본 정의서를 대체하지 않습니다. 상위 프로젝트의 원본 참조자료는 읽기 전용으로 보존하며 공개 저장소에 올리지 않았습니다. 17번 체크리스트 원문 끝부분 확인은 NEED_REVIEW입니다.
+docs의 DB/API/상태/보안/테스트 파일은 이번 구현의 보충 문서입니다. 원본 정의서를 대체하지 않습니다. 원본 참조자료는 읽기 전용으로 보존하며 공개 저장소에 올리지 않았습니다. 00~17번 전체 원문을 확보해 검토했으며 [기준 문서 확인 기록](docs/REFERENCE_INDEX.md)에 출처를 남겼습니다.
 
 현재 운영 환경은 실행을 거부합니다. PostgreSQL, 인증, 관리자와 운영 배포 검증은 별도 작업입니다. [기술 결정](docs/decisions/001-foundation.md), [Bootstrap 결과](docs/tasks/ZC-TASK-20260910-001_REPORT.md), [Account 보고서](docs/tasks/ZC-TASK-20260909-001_REPORT.md)를 확인하세요.

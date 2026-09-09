@@ -10,10 +10,10 @@
 - READY_FOR_DEVELOPMENT: YES (기술 기반, 로컬 범위)
 - READY_FOR_PRODUCTION: NO
 
-## 기술 구성 결정 필요
+## 기술 구성 및 원문 검토
 
-사용자가 기술 선택과 Bootstrap 구성을 위임하여 구성했다. [상세 Bootstrap 보고서](docs/tasks/ZC-TASK-20260910-001_REPORT.md)를 참조한다. 원본 17번 문서 끝부분 완전성 검토는 남아 있다. 전체 문서 완비와 운영 준비 PASS를 의미하지 않는다.
+사용자가 기술 선택과 Bootstrap 구성을 위임하여 구성했다. [상세 Bootstrap 보고서](docs/tasks/ZC-TASK-20260910-001_REPORT.md)를 참조한다. 00~17번 전체 원문 검토를 완료했고 기준 사본은 Git에서 제외된 local-reference에 보관했다. 운영 준비 PASS를 의미하지 않는다.
 
 ## 변경 내역
 
-공통 기반과 Account Foundation 구현, SQLite Migration 및 44개 테스트와 Build/Lint/실서버 Health 검증 완료. 기존 파일/API/Table/Data 삭제 없음. 후속 비즈니스 Task는 시작하지 않음.
+공통 기반과 Account Foundation 구현, SQLite Migration 및 47개 테스트와 Build/Lint/실서버 Health 검증 완료. 기존 파일/API/Table/Data 삭제 없음. 후속 비즈니스 Task는 시작하지 않음.
