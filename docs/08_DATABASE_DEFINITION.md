@@ -20,3 +20,5 @@ downgrade는 데이터를 지우지 않고 명시적으로 거부한다. 문제�
 phone/email/phone_verified_at/email_verified_at/last_login_at, AccountProfile/Agreement/Role/StatusHistory는 NOT_IMPLEMENTED. 전화번호·이메일 unique 정책은 원본에서도 후보이며 확정 전 구현하지 않는다. 기존 soft-deleted 레코드는 내부 일반조회에서 숨기되 원본과 PK는 보존한다.
 
 후속 ZC-TASK-20260910-003에서 Migration 20260910_003으로 password_hash를 추가했다. 기존 데이터는 NULL 유지하며 backfill/삭제 없음. PENDING 계정의 비어 있는 해시를 내부에서 최초 저장할 수 있다. 일반 Account Entity에는 노출하지 않으며 ORM 컬럼은 deferred+raiseload다. [저장 계약](decisions/003-credential-storage.md) 참조.
+
+후속004는 PostgreSQL+psycopg 연결 지원을 추가하며 기존 Migration을 재사용한다. SQLite 지원 유지, 실제 운영DB 이관/접근 없음. 신규 배포 환경은 TLS verify-full/CA 설정이 필요하다.

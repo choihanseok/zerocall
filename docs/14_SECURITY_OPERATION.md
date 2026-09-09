@@ -15,3 +15,5 @@
 ZC-TASK-20260910-002에서 내부 Argon2id 해시 어댑터를 추가했다. 원문 §5/6/43에 연결하며 세부 알고리즘·자원 경계·예외·운영 제한은 [기술 결정](decisions/002-password-hashing.md) 참조. 비밀번호/해시의 로그·DB·파일 저장은 없다.
 
 후속003에서는 해시의 AUTH 전용 DB 저장을 구현했다. 일반 Account 조회와 로그는 해시를 포함하지 않는다. 최초 저장만 가능하며 기존 해시 덮어쓰기 없음. [보안 경계](decisions/003-credential-storage.md) 참조. Actor 및 영구 Audit/공개 API는 후속 작업이다.
+
+후속004: STAGING/PRODUCTION의 일괄 실행 거부를 PostgreSQL 및 TLS verify-full/CA 구성검증으로 대체했다. 이것은 배포 승인이나 운영 준비 완료가 아니다. 기존 Secret 마스킹 유지. [배포 보안 경계](../deploy/README.md) 참조.
