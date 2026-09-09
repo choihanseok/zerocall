@@ -46,7 +46,7 @@ python -m build --wheel
 
 docs의 DB/API/상태/보안/테스트 파일은 이번 구현의 보충 문서입니다. 원본 정의서를 대체하지 않습니다. 원본 참조자료는 읽기 전용으로 보존하며 공개 저장소에 올리지 않았습니다. 00~17번 전체 원문을 확보해 검토했으며 [기준 문서 확인 기록](docs/REFERENCE_INDEX.md)에 출처를 남겼습니다.
 
-현재 운영 환경은 실행을 거부합니다. PostgreSQL, 인증, 관리자와 운영 배포 검증은 별도 작업입니다. [기술 결정](docs/decisions/001-foundation.md), [Bootstrap 결과](docs/tasks/ZC-TASK-20260910-001_REPORT.md), [Account 보고서](docs/tasks/ZC-TASK-20260909-001_REPORT.md)를 확인하세요.
+후속004에서 PostgreSQL 연결과 TLS 설정 검증 및 Docker 패키지를 준비했습니다. 실제 운영/스테이징 서버와 DB 구축은 계정 연결 대기 중이며 운영 준비는 NO입니다. [배포 상태](deploy/README.md)를 확인하세요. [기술 결정](docs/decisions/001-foundation.md), [Bootstrap 결과](docs/tasks/ZC-TASK-20260910-001_REPORT.md), [Account 보고서](docs/tasks/ZC-TASK-20260909-001_REPORT.md)를 확인하세요.
 
 ## 후속 작업
 

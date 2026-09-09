@@ -15,3 +15,5 @@ TC-ACC-001(회원가입), TC-ACC-002(전화번호 중복), TC-ACC-003(미인증 
 Password Hashing Foundation 후속 검증: tests/test_passwords.py 26 PASS, 기존 47 PASS, 총73 PASS. 실제 Argon2 연산과 잘못된 입력/비용/오류 경계를 검증한다. 로그인/권한/비밀번호 변경·저장 통합 검수로 간주하지 않는다.
 
 Credential Storage Foundation(003): 신규19개 + 기존73개 = 전체92 PASS. Migration 전후 데이터 보존·동시 최초 저장·rollback·일반 조회 비노출·SQL/이벤트 로그의 비밀값 제외를 검증했다. 기존 제약 테스트의 INSERT 컬럼명을 명시하고 head 기대값만 갱신했다. 가입/로그인 E2E 검수를 대체하지 않는다.
+
+후속004: 로컬105 PASS, 전용 PostgreSQL3 SKIP. 원격 CI에서 별도 PostgreSQL service로 실제 Migration/중복/동시성/rollback 및 Docker build/start/health를 검증한다. 실제 배포 TLS/백업/복구는 별도 미검증.

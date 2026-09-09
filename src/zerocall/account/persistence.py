@@ -85,7 +85,15 @@ class SqlAlchemyAccountRepository:
                 )
                 session.flush()
         except IntegrityError as exc:
-            if getattr(exc.orig, "sqlite_errorcode", None) == sqlite3.SQLITE_CONSTRAINT_PRIMARYKEY:
+            sqlite_duplicate = (
+                getattr(exc.orig, "sqlite_errorcode", None) == sqlite3.SQLITE_CONSTRAINT_PRIMARYKEY
+            )
+            postgres_duplicate = (
+                getattr(exc.orig, "sqlstate", None) == "23505"
+                and getattr(getattr(exc.orig, "diag", None), "constraint_name", None)
+                == "pk_accounts"
+            )
+            if sqlite_duplicate or postgres_duplicate:
                 raise AccountAlreadyExists() from None
             raise AccountStorageUnavailable() from None
         except SQLAlchemyError:

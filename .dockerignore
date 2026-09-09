@@ -1,0 +1,12 @@
+**
+!Dockerfile
+!pyproject.toml
+!requirements.lock
+!src/
+!src/zerocall/
+!src/zerocall/**
+!alembic.ini
+!migrations/
+!migrations/**
+**/__pycache__/
+**/*.pyc
