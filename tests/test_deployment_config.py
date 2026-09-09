@@ -34,3 +34,11 @@ def test_test_environment_cannot_target_remote_database():
         Settings(_env_file=None, environment="TEST", database_url=(
             "postgresql+psycopg://fixture:fixture@db.invalid/fixture"
         ))
+
+
+@pytest.mark.parametrize("option", ["host=remote.invalid", "hostaddr=192.0.2.1", "service=other"])
+def test_query_cannot_override_validated_database_target(option):
+    with pytest.raises(ValidationError):
+        Settings(_env_file=None, environment="TEST", database_url=(
+            f"postgresql+psycopg://fixture:fixture@127.0.0.1/fixture?{option}"
+        ))

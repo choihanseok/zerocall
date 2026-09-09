@@ -22,6 +22,8 @@ class Settings(BaseSettings):
             if deployed or not url.database or url.host:
                 raise ValueError("SQLite is only allowed for explicit local development databases")
         elif url.drivername == "postgresql+psycopg":
+            if set(url.query) - {"sslmode", "sslrootcert", "channel_binding"}:
+                raise ValueError("Unsupported PostgreSQL connection options")
             if not all((url.host, url.database, url.username, url.password)):
                 raise ValueError("PostgreSQL requires explicit host, database and credentials")
             if deployed:
