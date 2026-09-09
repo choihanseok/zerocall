@@ -2,7 +2,7 @@
 
 - Task ID: ZC-TASK-20260910-003
 - Task: Password Credential Storage Foundation / Module: AUTH COMMON
-- Risk: CRITICAL / Status: 로컬 검증 완료, 원격 CI 확인 중
+- Risk: CRITICAL / Status: COMPLETED (내부 저장 기반 범위)
 
 ## Requirement / Impact
 
@@ -26,7 +26,7 @@ ZR-COM-ACCOUNT-003/004의 기반 부분. DB 원문 §7/99와 보안 원문 §5/6
 - 기존 DB 제약 테스트는 컬럼 추가에 맞춰 INSERT 컬럼명을 명시하고 최신 Migration head 기대값만 갱신했다. 기존 검증 삭제 없음.
 - 최초 실패: 테스트용 미래 UTC 시각과 현재 시각 비교 오류 1건을 고정 시각으로 수정. 줄 길이 오류 수정. 최종 모두 PASS.
 - 기존 서드파티 deprecation warning 2건 유지.
-- 원격 CI: 게시 후 결과 기록.
+- 원격 CI: 코드 커밋 8e167dd828181f9b72437786bf83d3aacdb5e3ec의 [실행 34394155684](https://github.com/choihanseok/zerocall/actions/runs/34394155684) PASS. 설치·Lint·92개 Test·wheel Build 성공.
 
 ## Docs Sync
 
@@ -42,6 +42,7 @@ ZR-COM-ACCOUNT-003/004의 기반 부분. DB 원문 §7/99와 보안 원문 §5/6
 ## READY/NEXT TASK
 
 READY_FOR_INTERNAL_FOUNDATION: YES. READY_FOR_PRODUCTION: NO.
+[Draft PR #3](https://github.com/choihanseok/zerocall/pull/3), base=codex/password-hashing-foundation. main 병합·운영 배포 없음.
 다음 후보는 인증 정책과 경계 설계 검토다. 현재 Task 보고 후 종료하며 다음 기능은 아직 구현하지 않았다.
 
 로컬 Migration 실행: 환경 미설정 첫 시도는 안전하게 거부되었고, 명시적 LOCAL·개발용 SQLite 환경으로 적용 후 head=20260910_003 확인. 운영 DB 접근 없음.
