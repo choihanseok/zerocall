@@ -16,7 +16,7 @@ Python 3.12.14, FastAPI 0.141.1, SQLAlchemy 2.0.52, Alembic 1.19.2, pytest 9.1.1
 
 ## 제한 및 문서 상태
 
-- CI: 후속 계정 검증을 포함하는 workflow 추가 예정. 원격 실행 아직 미확인.
+- CI: 계정 검증을 포함한 workflow 게시 완료. GitHub Actions 실행 34390770096에서 pytest/ruff/wheel build 성공.
 - STAGING/PRODUCTION과 PostgreSQL: 미구축. 설정에서 실행 거부.
 - CORS: 허용 헤더를 추가하지 않는 기본 제한. 외부 연동 없음.
 - Auth, Role, 업무 API, UI: 없음.

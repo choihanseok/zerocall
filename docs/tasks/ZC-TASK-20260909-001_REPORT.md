@@ -45,7 +45,7 @@ ZR-COM-ACCOUNT-003의 기반 부분에 연결한다. 원본 회원 항목에는 
 - Build: Account를 포함한 wheel 생성 PASS.
 - 실제 loopback 서버 시작 및 /health 응답: PASS, 검증 후 해당 서버 종료.
 - DB: 로컬 Migration head 적용 및 조회 PASS.
-- 원격 CI: 게시 후 확인 예정. 사용자가 공개 게시를 명시적으로 승인하여 업로드를 재개했다.
+- 원격 CI: PASS. 커밋 02fbfecd3c1957c44de7fe46100682558b1b4023의 GitHub Actions 실행 34390770096에서 설치·pytest·ruff·wheel build 모두 성공. [실행 결과](https://github.com/choihanseok/zerocall/actions/runs/34390770096).
 - 서드파티 TestClient deprecation warning 2건 존재. 실패를 숨기거나 테스트를 삭제하지 않음.
 
 ## Docs Sync
@@ -58,7 +58,14 @@ DB/API/Status/Security/Test 및 Requirement 추적 보충 문서와 기술 결�
 2. SQLite 기반 로컬 검증이며 PostgreSQL 실서버 및 운영 배포는 미검증. STAGING/PRODUCTION 실행은 차단한다.
 3. 전화번호/이메일 유일성·정규화, Account 상태전이·탈퇴·재가입 및 Actor/Scope/Audit 정책은 원본의 NEED_REVIEW 유지.
 4. 관리자 검수 화면은 사용자 요청 범위 밖이며 미구현. 현 상태를 운영 기능 완료로 해석하지 않는다.
-5. 공개 저장소 게시가 최초 자동 검토에서 거절되었으나, 사용자가 공개 승인 관련 문구를 선택하여 명시적으로 승인했다. 공개 범위를 유지하고 코드·테스트·CI·보충 문서 40개 게시를 재개한다. 비밀값·원본 참조자료·DB 파일은 포함하지 않는다.
+5. 공개 저장소 게시가 최초 자동 검토에서 거절되었으나, 사용자가 공개 승인 관련 문구를 선택하여 명시적으로 승인했다. 공개 범위를 유지하고 코드·테스트·CI·보충 문서 40개 게시를 완료했다. 비밀값·원본 참조자료·DB 파일은 포함하지 않았다.
+
+## GitHub 게시
+
+- Branch: codex/account-foundation
+- [Draft PR #1](https://github.com/choihanseok/zerocall/pull/1)
+- main 병합 및 운영 배포 없음. 17번 전체 원문 확인 전 Draft 유지.
+- 게시 승인은 이번 준비 결과물의 공개에 적용하며 향후 모든 동작의 자동 승인 설정을 변경한 것은 아니다.
 
 ## READY/NEXT TASK
 
