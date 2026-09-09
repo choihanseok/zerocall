@@ -11,3 +11,5 @@
 | 동일 | ZR-COM-ACCOUNT-006 | 권한설정 | 범위 밖 |
 
 Task ZC-TASK-20260909-001 → AccountService → AccountRepository → accounts → AccountStatus → tests/test_account_*.py. Foundation용 테스트는 TC-ACC-001 회원가입 전체 검수를 대체하지 않는다.
+
+Task ZC-TASK-20260910-002 → ZR-COM-ACCOUNT-003/004 관련 보안 기반(14_SECURITY_OPERATION §5/6/43) → PasswordHashAdapter / Argon2PasswordHashAdapter → tests/test_passwords.py. 비밀번호 해시 생성·검증만 구현. 가입/로그인 전체 NOT_IMPLEMENTED 유지.

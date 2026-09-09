@@ -47,3 +47,7 @@ python -m build --wheel
 docs의 DB/API/상태/보안/테스트 파일은 이번 구현의 보충 문서입니다. 원본 정의서를 대체하지 않습니다. 원본 참조자료는 읽기 전용으로 보존하며 공개 저장소에 올리지 않았습니다. 00~17번 전체 원문을 확보해 검토했으며 [기준 문서 확인 기록](docs/REFERENCE_INDEX.md)에 출처를 남겼습니다.
 
 현재 운영 환경은 실행을 거부합니다. PostgreSQL, 인증, 관리자와 운영 배포 검증은 별도 작업입니다. [기술 결정](docs/decisions/001-foundation.md), [Bootstrap 결과](docs/tasks/ZC-TASK-20260910-001_REPORT.md), [Account 보고서](docs/tasks/ZC-TASK-20260909-001_REPORT.md)를 확인하세요.
+
+## 후속 작업
+
+ZC-TASK-20260910-002: 내부 비밀번호 해시 처리 기반. [Task Report](docs/tasks/ZC-TASK-20260910-002_REPORT.md) 및 [기술 결정](docs/decisions/002-password-hashing.md) 참조. Account 저장 및 로그인 API 연결은 후속 범위다.
