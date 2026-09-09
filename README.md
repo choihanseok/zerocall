@@ -1,5 +1,7 @@
 # ZERO CALL
 
+**Codex 개발 시작:** [CODEX_START_HERE.md](CODEX_START_HERE.md). 현재 환경의 필수 개발 Gate는 통과했으며 [최종 점검 보고서](docs/tasks/ZC-TASK-20260910-005_REPORT.md)에 근거를 기록했습니다. 실제 운영 배포는 미완료입니다.
+
 공통 플랫폼과 서비스별 모듈을 분리하는 생활형 O2O 플랫폼의 초기 Backend입니다.
 
 ## 현재 상태

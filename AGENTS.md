@@ -1,5 +1,10 @@
 # ZERO CALL repository work
 
+Start with CODEX_START_HERE.md and the current BOOTSTRAP_STATUS.md. In this local
+workspace the original 00-17 references are under local-reference (Git ignored).
+Read 00_MASTER_RULE, 16_CODEX_TASK_RULE and 17_PROJECT_BOOTSTRAP_CHECKLIST there
+before implementation. Do not publish or edit those original references.
+
 Read the approved ZERO CALL master and task documents before changes. The current
 implementation notes in docs are scoped addenda, not replacements for the original
 00–17 definitions. Original references were supplied in the parent project and are

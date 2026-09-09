@@ -1,23 +1,25 @@
 # ZERO CALL 개발 준비 상태
 
-- 점검일: 2026-09-10
-- 사용자 지시: 저장소를 생성하고 기존 Account Foundation 작업 계속
-- 로컬 저장소: 생성
-- 원격 저장소: https://github.com/choihanseok/zerocall (공개, GitHub 연결 접근 확인)
-- Framework / Language / ORM / DBMS: FastAPI / Python 3.12 / SQLAlchemy / SQLite LOCAL·DEV·TEST
-- Application / Config / Error / Logging / Health / Migration / Test: 구현 및 로컬 검증 완료
-- CI: workflow 작성, 원격 실행 결과는 Account 보고서 참조
-- READY_FOR_DEVELOPMENT: YES (기술 기반, 로컬 범위)
+- 최종 점검: 2026-09-10 / ZC-TASK-20260910-005
+- READY_FOR_DEVELOPMENT: YES (현재 로컬 환경)
+- BLOCKING_DEVELOPMENT_SETUP_ISSUES: NONE
+- READY_FOR_STAGING_DEPLOYMENT: NO
 - READY_FOR_PRODUCTION: NO
 
-## 기술 구성 및 원문 검토
+## 시작 위치
 
-사용자가 기술 선택과 Bootstrap 구성을 위임하여 구성했다. [상세 Bootstrap 보고서](docs/tasks/ZC-TASK-20260910-001_REPORT.md)를 참조한다. 00~17번 전체 원문 검토를 완료했고 기준 사본은 Git에서 제외된 local-reference에 보관했다. 운영 준비 PASS를 의미하지 않는다.
+실제 저장소는 zero-call, 현재 누적 개발 브랜치는 codex/deployment-foundation이다. main은 아직 병합하지 않았다. [Codex 시작 안내](CODEX_START_HERE.md)를 먼저 읽는다.
 
-## 변경 내역
+## 완료한 개발 준비
 
-공통 기반과 Account Foundation 구현, SQLite Migration 및 47개 테스트와 Build/Lint/실서버 Health 검증 완료. 기존 파일/API/Table/Data 삭제 없음. 후속 비즈니스 Task는 시작하지 않음.
+00~17 원문18개 확인, Framework/의존성/Git/로컬 환경/DB/Migration 확인, 실제 서버와 Health 확인, 공통 Error/Logging/Trace 회귀 검증 완료. 로컬108 tests PASS 및 PostgreSQL3 tests는 CI에서 PASS. Lint/wheel build/PostgreSQL/Docker build/start/health 모두 검증했다. .env·DB·원문자료는 Git 제외다.
 
-후속 진행: Password Hashing Foundation(002) 완료 후 Credential Storage Foundation(003)을 구현했다. 현재 Migration head=20260910_003, 전체92개 테스트·Lint·Build PASS. 상세 최신 상태는 [003 Task Report](docs/tasks/ZC-TASK-20260910-003_REPORT.md) 참조. READY_FOR_PRODUCTION=NO 유지.
+현재 기술: Python3.12/FastAPI/SQLAlchemy/Alembic. LOCAL은 SQLite, PostgreSQL은 전용 CI에서 검증했다. Migration head=20260910_003. 기능 기준 commit=42e943afd06c2334e7241ced125a83651e739539.
 
-후속004: 월 예산0원. PostgreSQL/Docker 배포 준비 및 검증을 진행한다. 실제 클라우드 서버/DB는 미생성. [004 상태](docs/tasks/ZC-TASK-20260910-004_REPORT.md) 참조. 운영 준비 NO.
+## 개발 결과와 별도 남은 항목
+
+Account Foundation, Password Hashing, Credential Storage 기반 구현 완료.004의 PostgreSQL/Docker 배포 준비 코드는 검증됐지만 클라우드 실제 자원 생성은 계정 연결 대기다. 예산0원으로 유료 자원은 생성하지 않았다. 운영/스테이징 서버·영구DB·HTTPS/권한분리/백업복구 실증은 미완료이며 현재 로컬 개발 시작을 막지 않는다.
+
+원문 기준 사본은 local-reference에 있다. 새 clone/worktree에서 자동으로 복사되지 않으므로 해당 환경의 문서·의존성·환경·DB 점검은 다시 수행한다. 기존 자료와 사용자 변경은 보존한다.
+
+[최종005 보고서](docs/tasks/ZC-TASK-20260910-005_REPORT.md) / [004 인프라 진행 보고서](docs/tasks/ZC-TASK-20260910-004_REPORT.md)
